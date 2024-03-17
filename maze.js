@@ -1,5 +1,7 @@
 const canvas = document.getElementById("mazeCanvas");
 const ctx = canvas.getContext("2d");
+let rows = 10;
+let cols = 10;
 
 function drawMaze(mazeData) { //tegner labyrinten
   const rows = mazeData.rows;
@@ -42,10 +44,10 @@ function drawMaze(mazeData) { //tegner labyrinten
   }
 }
 
-/*
-function generateMaze() { //mazeData
- 
-  const mazeData = generate(rows, cols);
+
+function initializeMaze() { //mazeData
+  const mazeData = maze_generator(rows, cols);
   drawMaze(mazeData);
 }
-*/
+
+initializeMaze();
