@@ -3,9 +3,7 @@ const ctx = canvas.getContext("2d");
 let rows = 10;
 let cols = 10;
 
-function drawMaze(mazeData) { //tegner labyrinten
-  const rows = mazeData.rows;
-  const cols = mazeData.cols;
+function drawMaze(mazeData, path) { //tegner labyrinten
   const maze = mazeData.maze;
 
   const cellWidth = canvas.width / cols;
@@ -13,6 +11,8 @@ function drawMaze(mazeData) { //tegner labyrinten
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+
+  //draws
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const cell = maze[row][col];
@@ -66,7 +66,8 @@ function drawMaze(mazeData) { //tegner labyrinten
 
 function initializeMaze() { //mazeData
   const mazeData = maze_generator(rows, cols);
-  drawMaze(mazeData);
+  const path = solveMaze(mazeData);
+  drawMaze(mazeData, path);
 }
 
 initializeMaze();
