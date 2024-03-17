@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  #mazeCanvas {
+    border: 1px solid black;
+  }
+  
