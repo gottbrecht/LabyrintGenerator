@@ -16,6 +16,8 @@ function drawMaze(mazeData) { //tegner labyrinten
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const cell = maze[row][col];
+      ctx.strokeStyle = "black"; //walls
+
       if (cell.north) {
         ctx.beginPath();
         ctx.moveTo(col * cellWidth, row * cellHeight);
@@ -42,6 +44,23 @@ function drawMaze(mazeData) { //tegner labyrinten
       }
     }
   }
+
+  //draw path
+  ctx.strokeStyle = "green"; 
+  ctx.lineWidth = 4; //adjust line width
+
+  ctx.beginPath();
+  for (let i = 0; i < path.length; i++) {
+      const { row, col } = path[i];
+      const x = (col + 0.5) * cellWidth;
+      const y = (row + 0.5) * cellHeight;
+      if (i === 0) {
+          ctx.moveTo(x, y);
+      } else {
+          ctx.lineTo(x, y);
+      }
+  }
+  ctx.stroke();
 }
 
 
